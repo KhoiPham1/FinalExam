@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Staff</title>
+</head>
+<body>
+<a href="/list-staff">List Staff</a>
+<p th:text="${message}"></p>
+<form action="/edit-staff" method="post" th:object="${staff}">
+    <fieldset>
+        <legend>Update Staff</legend>
+        <table border="1">
+            <input type="hidden" th:field="*{id}">
+            <tr>
+                <th>Codestaff</th>
+                <td><input type="text" th:field="*{codestaff}"></td>
+                <td th:if="${#fields.hasErrors('codestaff')}" th:errors="*{codestaff}">CodeStaff error</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" th:field="*{name}"></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td><input type="text" th:field="*{birthday}"></td>
+                <td th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Birthday error</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td><input type="text" th:field="*{gender}"></td>
+                <td th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender error</td>
+            </tr>
+            <tr>
+                <th>PhoneNumber</th>
+                <td><input type="text" th:field="*{phonenumber}"></td>
+                <td th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">Phonenumber error</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td><input type="text" th:field="*{code}"></td>
+                <td th:if="${#fields.hasErrors('code')}" th:errors="*{code}">Code error</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" th:field="*{address}"></td>
+                <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</td>
+            </tr>
+            <tr>
+                <th>Group</th>
+                <td>
+                    <select th:field="*{group}">
+                        <option th:each="p : ${group} " th:value="${p.id}" th:text="${p.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+</body>
+</html>
