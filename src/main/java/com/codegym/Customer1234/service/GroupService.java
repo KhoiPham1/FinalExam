@@ -1,11 +1,15 @@
 package com.codegym.Customer1234.service;
 
 import com.codegym.Customer1234.model.Group;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface GroupService {
-    Iterable<Group> findAll();
+    List<Group> findAll();
 
     Group findById (Long id);
+
+    void save(Group group);
+
+    void delete(Long id);
 }
